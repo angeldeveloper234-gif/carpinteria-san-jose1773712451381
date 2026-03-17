@@ -1,10 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { UserProvider } from "@/context/UserContext";
+import { UserProvider, useUser } from "@/context/UserContext";
+import { config } from "@/config";
 
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { StickyCallBar } from "@/components/StickyCallBar";
+import LegalBotWidget from "@/components/LegalBotWidget";
+
+function ChatbotManager() {
+    const { email, name } = useUser();
+    
+    if (config.landingClientId === "00000000-0000-0000-0000-000000000000") {
+        return null;
+    }
+
+    return (
+        <LegalBotWidget 
+            botId={config.landingClientId}
+            metadata={{
+                source: "landing_carpinteria",
+                user_email: email || "anonymous",
+                user_name: name || "anonymous",
+                trade: config.branding.trade,
+                city: config.dynamicContent.city
+            }}
+            supabaseUrl={config.supabase.url}
+            supabaseKey={config.supabase.anonKey}
+        />
+    );
+}
 
 function App() {
     return (
@@ -18,6 +43,7 @@ function App() {
                     </Routes>
                     <Footer />
                     <StickyCallBar />
+                    <ChatbotManager />
                 </div>
             </Router>
         </UserProvider>

@@ -50,4 +50,11 @@
         pointer-events: none;
     }
 }
-
+
+/* Protocolo de Coexistencia Móvil */
+@media (max-width: 768px) {
+    /* Forzar que el widget de LexFlow (si usa ID o clases comunes) flote sobre la StickyBar */
+    #lexflow-widget-container, .lexflow-widget-container {
+        bottom: 90px !important;
+    }
+}
