@@ -125,7 +125,7 @@ export const config = {
 
     features: {
         showGallery: true,
-        showProducts: false,
+        showProducts: true,
         showTestimonials: true,
         showFAQ: true,
         showStats: true
@@ -150,9 +150,31 @@ export const config = {
         {
             title: "Estantería Roble",
             category: "Mobiliario",
-            image: "https://images.unsplash.com/photo-1594913785162-e6785b426cb7?q=80&w=800&auto=format&fit=crop"
+            image: "/gallery/estanteria-roble.png"
         }
     ],
 
-    products: [] as Product[]
+    products: [
+        {
+            id: 1,
+            name: "Mesa Comedor Artesanal",
+            desc: "Sólida mesa de roble tallada a mano, con acabados naturales que resaltan la veta de la madera.",
+            price: "$12,500 MXN",
+            image: "/products/mesa-comedor.png"
+        },
+        {
+            id: 2,
+            name: "Escritorio Ejecutivo Premium",
+            desc: "Diseño minimalista y ergonómico, ideal para oficina en casa con compartimentos ocultos.",
+            price: "$8,900 MXN",
+            image: "/products/escritorio-roble.png"
+        },
+        {
+            id: 3,
+            name: "Puerta Principal de Lujo",
+            desc: "Puerta de seguridad en madera de nogal con detalles tallados y herrajes de bronce.",
+            price: "$18,000 MXN",
+            image: "/products/puerta-tallada.png"
+        }
+    ] as Product[]
 };
