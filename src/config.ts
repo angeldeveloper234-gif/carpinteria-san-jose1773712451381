@@ -1,3 +1,11 @@
+interface Product {
+    id: string | number;
+    image: string;
+    name: string;
+    price: string;
+    desc: string;
+}
+
 export const config = {
     branding: {
         name: "Carpintería San José",
@@ -146,5 +154,5 @@ export const config = {
         }
     ],
 
-    products: []
+    products: [] as Product[]
 };
